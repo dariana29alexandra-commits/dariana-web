@@ -5,15 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios de Dariana</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(-45deg, #ff4d6d, #ff85a1, #ff99c8, #ffc2d1);
+      background: linear-gradient(-45deg, #ff4d6d, #ff85a1, #c77dff, #7b2cbf);
       background-size: 400% 400%;
-      animation: gradientBG 8s ease infinite;
+      animation: gradientBG 10s ease infinite;
       text-align: center;
       overflow-x: hidden;
     }
@@ -26,16 +24,15 @@
 
     header {
       padding: 40px 20px;
-      color: #333;
+      color: #fff;
     }
 
-    /* LOGO girando suave */
+    /* LOGO visible y más grande */
     .logo {
-      width: 95px;
-      border-radius: 20px;
-      margin-bottom: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.25);
-      animation: girarSuave 8s linear infinite;
+      width: 130px;
+      display: block;
+      margin: 0 auto 15px auto;
+      animation: girarSuave 12s linear infinite;
     }
 
     @keyframes girarSuave {
@@ -43,22 +40,15 @@
       to { transform: rotate(360deg); }
     }
 
-    header img.foto {
-      width: 140px;
+    .foto {
+      width: 150px;
       border-radius: 50%;
-      box-shadow: 0 0 25px rgba(0,0,0,0.3);
       margin-bottom: 15px;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
+      border: 4px solid white;
     }
 
     h1 {
-      font-size: 2.6rem;
+      font-size: 2.5rem;
       margin: 10px 0;
     }
 
@@ -71,12 +61,6 @@
       border-radius: 30px;
       text-decoration: none;
       font-weight: bold;
-      animation: glow 1.5s infinite alternate;
-    }
-
-    @keyframes glow {
-      from { box-shadow: 0 0 10px rgba(255,255,255,0.4); }
-      to { box-shadow: 0 0 25px rgba(255,255,255,1); }
     }
 
     .servicios {
@@ -92,11 +76,10 @@
       padding: 25px;
       box-shadow: 0 15px 35px rgba(0,0,0,0.2);
       transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
     }
 
     .card:hover {
-      transform: translateY(-12px) scale(1.05) rotate(-1deg);
+      transform: translateY(-10px) scale(1.05);
       box-shadow: 0 20px 45px rgba(0,0,0,0.3);
     }
 
@@ -116,7 +99,6 @@
       margin-top: 12px;
       font-weight: bold;
       color: #ff4d6d;
-      font-size: 1.1rem;
     }
 
     .whatsapp {
@@ -129,7 +111,6 @@
       padding: 16px 20px;
       border-radius: 50%;
       text-decoration: none;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
       animation: heartbeat 1.2s infinite;
     }
 
@@ -141,16 +122,18 @@
     footer {
       margin: 40px 0 20px;
       font-size: 14px;
+      color: white;
     }
 
-    .heart {
+    /* Objetos tecnológicos flotando */
+    .tech {
       position: fixed;
-      font-size: 22px;
-      animation: rise 10s linear infinite;
+      font-size: 28px;
+      animation: subir 12s linear infinite;
       opacity: 0.7;
     }
 
-    @keyframes rise {
+    @keyframes subir {
       from { transform: translateY(100vh); }
       to { transform: translateY(-10vh); }
     }
@@ -159,42 +142,41 @@
 
 <body>
 
-  <!-- Corazones animados -->
-  <div class="heart" style="left:5%; animation-duration:9s;">💖</div>
-  <div class="heart" style="left:20%; animation-duration:12s;">💕</div>
-  <div class="heart" style="left:40%; animation-duration:10s;">💗</div>
-  <div class="heart" style="left:60%; animation-duration:14s;">💘</div>
-  <div class="heart" style="left:80%; animation-duration:11s;">💞</div>
+  <!-- Objetos tecnológicos -->
+  <div class="tech" style="left:10%; animation-duration:10s;">💻</div>
+  <div class="tech" style="left:25%; animation-duration:14s;">🖥️</div>
+  <div class="tech" style="left:45%; animation-duration:9s;">⌨️</div>
+  <div class="tech" style="left:65%; animation-duration:13s;">🖱️</div>
+  <div class="tech" style="left:85%; animation-duration:11s;">📊</div>
 
-  <header class="animate__animated animate__fadeInDown">
-    <img src="logo.png" alt="Logo de Dariana" class="logo">
+  <header>
+    <img src="logo.png" alt="Logo" class="logo">
     <img src="foto.jpg" alt="Foto de Dariana" class="foto">
     <h1>Dariana Alexandra</h1>
     <p>Programación • Soporte • Administración</p>
-
-    <a class="instagram-btn" href="https://www.instagram.com/alexandra_leoespi/" target="_blank">✨ Ver mi Instagram</a>
+    <a class="instagram-btn" href="https://www.instagram.com/alexandra_leoespi/" target="_blank">Ver mi Instagram</a>
   </header>
 
   <section class="servicios">
 
-    <div class="card animate__animated animate__zoomIn">
+    <div class="card">
       <span>💻</span>
       <h3>Páginas Web</h3>
       <p>Diseño de páginas modernas, landing page y edición de código.</p>
       <div class="precio">Desde $10</div>
     </div>
 
-    <div class="card animate__animated animate__zoomIn">
+    <div class="card">
       <span>🛠️</span>
       <h3>Soporte Técnico</h3>
-      <p>Instalación de programas, limpieza y optimización de computadoras.</p>
+      <p>Instalación de programas y optimización de computadoras.</p>
       <div class="precio">Consultar precio</div>
     </div>
 
-    <div class="card animate__animated animate__zoomIn">
+    <div class="card">
       <span>📊</span>
       <h3>Trabajos Administrativos</h3>
-      <p>Word, Excel, PowerPoint, transcripciones, currículums y organización de datos.</p>
+      <p>Word, Excel, PowerPoint, transcripciones y organización de datos.</p>
       <div class="precio">Desde $10</div>
     </div>
 
