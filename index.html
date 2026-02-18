@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios de Dariana</title>
 
-  <!-- Animaciones -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+      background: linear-gradient(-45deg, #ff4d6d, #ff85a1, #ff99c8, #ffc2d1);
       background-size: 400% 400%;
-      animation: fondo 12s ease infinite;
+      animation: gradientBG 8s ease infinite;
       text-align: center;
-      color: #333;
       overflow-x: hidden;
     }
 
-    @keyframes fondo {
+    @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
@@ -28,57 +26,83 @@
 
     header {
       padding: 40px 20px;
+      color: #333;
     }
 
     header img {
-      width: 120px;
+      width: 140px;
       border-radius: 50%;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
       margin-bottom: 15px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
 
     h1 {
+      font-size: 2.6rem;
       margin: 10px 0;
-      font-size: 2.5rem;
+    }
+
+    .instagram-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 24px;
+      background: linear-gradient(45deg, #feda75, #d62976, #962fbf);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 10px rgba(255,255,255,0.4); }
+      to { box-shadow: 0 0 25px rgba(255,255,255,1); }
     }
 
     .servicios {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      gap: 25px;
       padding: 30px;
     }
 
     .card {
       background: white;
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      border-radius: 25px;
+      padding: 25px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
       transition: transform 0.3s, box-shadow 0.3s;
       position: relative;
     }
 
     .card:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+      transform: translateY(-12px) scale(1.05) rotate(-1deg);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.3);
     }
 
     .card span {
-      font-size: 40px;
+      font-size: 45px;
       display: block;
       margin-bottom: 10px;
-      animation: flotar 3s ease-in-out infinite;
+      animation: float 3s ease-in-out infinite;
     }
 
-    @keyframes flotar {
+    @keyframes float {
       0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-12px); }
     }
 
     .precio {
-      margin-top: 10px;
+      margin-top: 12px;
       font-weight: bold;
       color: #ff4d6d;
+      font-size: 1.1rem;
     }
 
     .whatsapp {
@@ -87,17 +111,17 @@
       right: 20px;
       background: #25D366;
       color: white;
-      font-size: 28px;
-      padding: 15px 18px;
+      font-size: 30px;
+      padding: 16px 20px;
       border-radius: 50%;
       text-decoration: none;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-      animation: latido 1.5s infinite;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      animation: heartbeat 1.2s infinite;
     }
 
-    @keyframes latido {
+    @keyframes heartbeat {
       0%,100% { transform: scale(1); }
-      50% { transform: scale(1.15); }
+      50% { transform: scale(1.2); }
     }
 
     footer {
@@ -105,32 +129,15 @@
       font-size: 14px;
     }
 
-    .instagram {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 18px;
-      background: linear-gradient(45deg, #feda75, #d62976, #962fbf);
-      color: white;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: bold;
-      animation: brillo 2s infinite alternate;
-    }
-
-    @keyframes brillo {
-      from { box-shadow: 0 0 5px rgba(255,255,255,0.3); }
-      to { box-shadow: 0 0 20px rgba(255,255,255,0.9); }
-    }
-
-    /* Objetos flotantes */
-    .objeto {
+    /* corazones flotando */
+    .heart {
       position: fixed;
-      font-size: 30px;
-      animation: subir 10s linear infinite;
+      font-size: 22px;
+      animation: rise 10s linear infinite;
       opacity: 0.7;
     }
 
-    @keyframes subir {
+    @keyframes rise {
       from { transform: translateY(100vh); }
       to { transform: translateY(-10vh); }
     }
@@ -139,19 +146,19 @@
 
 <body>
 
-  <!-- Objetos animados -->
-  <div class="objeto" style="left:10%; animation-duration:12s;">💻</div>
-  <div class="objeto" style="left:30%; animation-duration:9s;">📊</div>
-  <div class="objeto" style="left:50%; animation-duration:14s;">🖥️</div>
-  <div class="objeto" style="left:70%; animation-duration:11s;">📁</div>
-  <div class="objeto" style="left:90%; animation-duration:13s;">✨</div>
+  <!-- Corazones animados -->
+  <div class="heart" style="left:5%; animation-duration:9s;">💖</div>
+  <div class="heart" style="left:20%; animation-duration:12s;">💕</div>
+  <div class="heart" style="left:40%; animation-duration:10s;">💗</div>
+  <div class="heart" style="left:60%; animation-duration:14s;">💘</div>
+  <div class="heart" style="left:80%; animation-duration:11s;">💞</div>
 
   <header class="animate__animated animate__fadeInDown">
-    <img src="foto.jpg" alt="Foto de Dariana" />
+    <img src="foto.jpg" alt="Foto de Dariana">
     <h1>Dariana Alexandra</h1>
     <p>Programación • Soporte • Administración</p>
 
-    <a class="instagram" href="https://www.instagram.com/alexandra_leoespi/" target="_blank">Ver mi Instagram</a>
+    <a class="instagram-btn" href="https://www.instagram.com/alexandra_leoespi/" target="_blank">✨ Ver mi Instagram</a>
   </header>
 
   <section class="servicios">
