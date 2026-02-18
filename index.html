@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dariana Leonicie | Servicios de Programación</title>
+  <title>Dariana Leonicie | Servicios Digitales</title>
 
-  <!-- Fuente divertida -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
@@ -36,22 +35,6 @@
       padding: 25px;
       box-shadow: 0 15px 35px rgba(0,0,0,0.15);
       margin-bottom: 25px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::after {
-      content: "";
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      background: rgba(247,37,133,0.15);
-      border-radius: 50%;
-      top: -40px;
-      right: -40px;
-    }
-
-    .header {
       text-align: center;
     }
 
@@ -75,18 +58,8 @@
       margin-top: 15px;
     }
 
-    h1 {
-      margin: 10px 0;
-      font-size: 42px;
-      color: #7209b7;
-    }
-
-    h2 {
-      color: #b5179e;
-      margin-bottom: 15px;
-    }
-
-    p { line-height: 1.6; }
+    h1 { font-size: 42px; color: #7209b7; }
+    h2 { color: #b5179e; }
 
     .grid {
       display: grid;
@@ -99,12 +72,16 @@
       color: white;
       padding: 15px;
       border-radius: 15px;
-      transform: scale(1);
       transition: 0.3s;
     }
 
-    .project:hover {
-      transform: scale(1.05) rotate(-1deg);
+    .project:hover { transform: scale(1.05); }
+
+    .servicio {
+      background: #fff0fb;
+      padding: 20px;
+      border-radius: 15px;
+      margin: 10px 0;
     }
 
     .btn {
@@ -115,7 +92,6 @@
       border-radius: 30px;
       text-decoration: none;
       font-weight: bold;
-      transition: 0.3s;
       animation: pulso 2s infinite;
     }
 
@@ -125,22 +101,14 @@
       100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
     }
 
-    .btn:hover { transform: scale(1.1); }
-
     .price-box {
       background: linear-gradient(135deg, #ffe0f0, #f3c4ff);
       padding: 18px;
       border-radius: 15px;
-      text-align: center;
       font-weight: bold;
       color: #7209b7;
       font-size: 18px;
-    }
-
-    .decor {
-      text-align: center;
-      font-size: 40px;
-      margin-bottom: 10px;
+      margin-top: 15px;
     }
 
     footer {
@@ -156,34 +124,29 @@
   <div class="container">
 
     <!-- ENCABEZADO -->
-    <div class="card header">
-      <img src="logo.png" alt="Logo DLSD" class="logo" />
+    <div class="card">
+      <img src="logo.png" class="logo" alt="Logo">
       <h1>Dariana Leonicie</h1>
-      <p>Programadora creativa que convierte ideas en páginas web bonitas, rápidas y funcionales 💻✨</p>
-      <img src="foto.jpg" alt="Foto de Dariana" class="profile-pic" />
-
+      <p>Servicios digitales, programación y apoyo administrativo para estudiantes, negocios y emprendedores 💻✨</p>
+      <img src="foto.jpg" class="profile-pic" alt="Foto">
       <p><strong>📱 04143731342<br>📧 dariana29.alexandra@gmail.com</strong></p>
-
-      <!-- BOTÓN WHATSAPP -->
       <a class="btn" href="https://wa.me/584143731342" target="_blank">💬 Escríbeme por WhatsApp</a>
     </div>
 
     <!-- EXPERIENCIA -->
     <div class="card">
-      <div class="decor">🖥️✨👩‍💻</div>
       <h2>Experiencia</h2>
-      <ul>
+      <ul style="text-align:left;">
         <li>Creación de páginas web modernas y responsivas.</li>
-        <li>Programación en C++ con algoritmos avanzados.</li>
-        <li>Desarrollo de chatbots y proyectos académicos.</li>
+        <li>Programación en C++ y resolución de algoritmos.</li>
         <li>Automatización de tareas digitales.</li>
-        <li>Asesorías personalizadas en programación.</li>
+        <li>Asesorías en programación básica e intermedia.</li>
+        <li>Gestión de documentos y apoyo administrativo.</li>
       </ul>
     </div>
 
     <!-- PROYECTOS -->
     <div class="card">
-      <div class="decor">🚀💜</div>
       <h2>Proyectos Destacados</h2>
       <div class="grid">
         <div class="project">Landing page profesional</div>
@@ -195,22 +158,30 @@
 
     <!-- SERVICIOS -->
     <div class="card">
-      <div class="decor">💼💻</div>
-      <h2>Servicios</h2>
-      <ul>
-        <li>Páginas web para negocios o estudiantes.</li>
-        <li>Proyectos de programación.</li>
-        <li>Asesorías paso a paso.</li>
-        <li>Automatización digital.</li>
-      </ul>
+      <h2>Servicios que ofrezco</h2>
+
+      <div class="servicio">
+        <h3>💻 Desarrollo Web</h3>
+        <p>Páginas web modernas, edición de código HTML, CSS y JavaScript.</p>
+      </div>
+
+      <div class="servicio">
+        <h3>🛠 Soporte Técnico</h3>
+        <p>Instalación de programas, optimización de computadoras y asesorías tecnológicas.</p>
+      </div>
+
+      <div class="servicio">
+        <h3>📊 Trabajos Administrativos</h3>
+        <p>Documentos en Word, Excel y PowerPoint, transcripciones, currículums y organización de datos.</p>
+      </div>
 
       <div class="price-box">
-        💰 Precios desde 10$ tasa BCV — Consulta tu precio al privado.
+        💰 Precios desde 10$ tasa BCV — Consulta tu presupuesto al privado.
       </div>
     </div>
 
     <!-- CTA FINAL -->
-    <div class="card" style="text-align:center;">
+    <div class="card">
       <h2>✨ Hagamos tu proyecto realidad ✨</h2>
       <a class="btn" href="https://wa.me/584143731342" target="_blank">Escribirme ahora</a>
     </div>
