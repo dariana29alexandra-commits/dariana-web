@@ -5,162 +5,163 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dariana | Digital Services</title>
   <style>
-    :root {
-      --acento: #ff85c1;
-      --fondo: linear-gradient(135deg, #fff5f8 0%, #e3f2fd 100%);
-    }
-
+    /* Estilo General con vibras tiernas */
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--fondo);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffe9f3 0%, #e0f2ff 100%);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
+      color: #4a4a4a;
     }
 
-    /* Contenedor de Foto y Logo Centrados */
     header {
-      padding: 40px 20px;
+      padding: 40px 20px 20px;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
-    .perfil-container {
+    /* Contenedor de fotos con estilo */
+    .perfil-wrapper {
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
+      display: inline-block;
     }
 
-    /* Tu Foto Principal */
-    .foto-usuario {
-      width: 140px;
-      height: 140px;
+    .foto-principal {
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
-      border: 5px solid white;
-      box-shadow: 0 10px 20px rgba(255, 133, 193, 0.2);
+      border: 4px solid white;
+      box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
       object-fit: cover;
-      z-index: 2;
+      margin-bottom: 10px;
     }
 
-    /* El Logo */
     .logo-marca {
+      display: block;
       width: 80px;
-      height: auto;
+      margin: 0 auto;
       border-radius: 12px;
-      margin-top: -10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    /* El toque Cuchi: Conejito animado */
+    /* Gatito Cuchi Saludando */
     .mascota-cuchi {
       position: absolute;
-      top: -10px;
-      right: -15px;
-      font-size: 45px;
-      animation: rebote 2s infinite ease-in-out;
-      filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
+      top: -15px;
+      right: -10px;
+      font-size: 50px;
+      animation: saludo 2s infinite ease-in-out;
+      cursor: default;
     }
 
-    @keyframes rebote {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(10deg); }
+    @keyframes saludo {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(20deg) scale(1.1); }
     }
 
     h1 {
-      color: #ff4081;
       font-size: 22px;
-      margin-top: 20px;
-      font-weight: 800;
+      color: #ff4d94;
       text-transform: uppercase;
       letter-spacing: 1px;
+      margin: 15px 0;
+      text-shadow: 1px 1px 2px white;
     }
 
-    /* Botones Estilo Burbuja */
-    .servicios-links {
+    /* Botones Estilo Nube */
+    .enlaces-container {
       width: 90%;
-      max-width: 360px;
-      margin-top: 10px;
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
-    .link-card {
-      display: block;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(5px);
-      margin-bottom: 12px;
-      padding: 16px;
-      border-radius: 25px;
+    .btn-servicio {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 18px;
+      border-radius: 30px;
       text-align: center;
       text-decoration: none;
-      color: #444;
-      font-weight: 600;
-      border: 1px solid rgba(255, 133, 193, 0.3);
-      transition: 0.3s all ease;
+      color: #555;
+      font-weight: 700;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
 
-    .link-card:hover {
-      transform: scale(1.05);
+    .btn-servicio:hover {
+      transform: translateY(-5px);
       background: white;
-      color: #ff4081;
-      box-shadow: 0 10px 20px rgba(255, 64, 129, 0.1);
+      color: #ff4d94;
+      box-shadow: 0 10px 25px rgba(255, 77, 148, 0.2);
     }
 
-    .instagram-btn {
+    .insta-link {
       margin-top: 25px;
       color: #ad1457;
       text-decoration: none;
-      font-size: 15px;
       font-weight: bold;
       border-bottom: 2px solid #ffc1e3;
+      padding-bottom: 2px;
     }
 
-    /* WhatsApp Flotante */
-    .ws-float {
+    /* Botón WhatsApp Flotante */
+    .whatsapp-btn {
       position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: #25d366;
-      width: 60px;
-      height: 60px;
+      bottom: 30px;
+      right: 30px;
+      background: #25D366;
+      width: 65px;
+      height: 65px;
       border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-      text-decoration: none;
-      font-size: 30px;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+      z-index: 100;
+      animation: pulso 2s infinite;
+    }
+
+    @keyframes pulso {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="perfil-container">
-    <div class="mascota-cuchi">🐰</div>
-    <img src="foto.jpn" class="foto-usuario" alt="Mi Foto">
-    <img src="logo.jpg" class="logo-marca" alt="Mi Logo">
+  <div class="perfil-wrapper">
+    <div class="mascota-cuchi">🐱</div>
+    <img src="foto.jpg" class="foto-principal" alt="Dariana">
+    <img src="logo.png" class="logo-marca" alt="Logo">
   </div>
-  <h1>Servicios Digitales</h1>
+  <h1>Servicios Digitales & Administrativos</h1>
 </header>
 
-<div class="servicios-links">
-  <a href="#" class="link-card">✨ Páginas Web Básicas</a>
-  <a href="#" class="link-card">🎨 Diseño HTML y CSS</a>
-  <a href="#" class="link-card">📂 Trabajos Administrativos</a>
-  <a href="#" class="link-card">💻 Asesorías de Programación</a>
+<div class="enlaces-container">
+  <a href="#" class="btn-servicio">✨ Páginas web básicas</a>
+  <a href="#" class="btn-servicio">🎨 Diseño HTML y CSS</a>
+  <a href="#" class="btn-servicio">📁 Trabajos administrativos</a>
+  <a href="#" class="btn-servicio">💻 Asesorías de programación</a>
 </div>
 
-<a class="instagram-btn" href="https://www.instagram.com/alexandra_leoespi/" target="_blank">
+<a class="insta-link" href="https://www.instagram.com/alexandra_leoespi/" target="_blank">
   💖 Sígueme en Instagram
 </a>
 
-<a href="https://wa.me/584143731342" class="ws-float" target="_blank">
-  <span>💬</span>
+<a href="https://wa.me/584143731342" class="whatsapp-btn" target="_blank">
+  <span style="font-size: 35px; color: white;">💬</span>
 </a>
 
 </body>
