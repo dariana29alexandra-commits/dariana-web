@@ -25,36 +25,44 @@
     header {
       padding: 40px 20px;
       color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
     }
 
-    /* LOGO visible y más grande */
+    /* LOGO estático a un lado */
     .logo {
-      width: 130px;
-      display: block;
-      margin: 0 auto 15px auto;
-      animation: girarSuave 12s linear infinite;
-    }
-
-    @keyframes girarSuave {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      width: 120px;
     }
 
     .foto {
       width: 150px;
       border-radius: 50%;
-      margin-bottom: 15px;
       border: 4px solid white;
     }
 
+    /* Muñeco señalando */
+    .robot {
+      font-size: 70px;
+      animation: mover 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes mover {
+      from { transform: translateX(-10px); }
+      to { transform: translateX(10px); }
+    }
+
     h1 {
+      width: 100%;
       font-size: 2.5rem;
-      margin: 10px 0;
+      margin: 10px 0 0 0;
     }
 
     .instagram-btn {
       display: inline-block;
-      margin-top: 15px;
+      margin-top: 10px;
       padding: 12px 24px;
       background: linear-gradient(45deg, #feda75, #d62976, #962fbf);
       color: white;
@@ -150,8 +158,10 @@
   <div class="tech" style="left:85%; animation-duration:11s;">📊</div>
 
   <header>
+    <div class="robot">🤖👉</div>
     <img src="logo.png" alt="Logo" class="logo">
     <img src="foto.jpg" alt="Foto de Dariana" class="foto">
+
     <h1>Dariana Alexandra</h1>
     <p>Programación • Soporte • Administración</p>
     <a class="instagram-btn" href="https://www.instagram.com/alexandra_leoespi/" target="_blank">Ver mi Instagram</a>
