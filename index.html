@@ -3,130 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dariana | Digital Services</title>
+  <title>Dariana | Innovación Digital</title>
   <style>
-    /* Estilo General con vibras tiernas */
+    :root {
+      --rosa: #ff6eb4;
+      --celeste: #8de4ff;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #ffe9f3 0%, #e0f2ff 100%);
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffeef8 0%, #e0f7ff 100%);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      color: #4a4a4a;
+      overflow-x: hidden;
+      position: relative;
     }
 
+    /* --- Fondo Animado de Computadoras y Mouses --- */
+    .decoracion {
+      position: fixed;
+      top: -10%;
+      font-size: 25px;
+      user-select: none;
+      z-index: 0;
+      filter: opacity(0.3);
+      animation: caer linear infinite;
+    }
+
+    @keyframes caer {
+      to { transform: translateY(110vh) rotate(360deg); }
+    }
+
+    /* --- Encabezado --- */
     header {
-      padding: 40px 20px 20px;
+      padding: 50px 20px 20px;
       text-align: center;
+      z-index: 10;
     }
 
-    /* Contenedor de fotos con estilo */
-    .perfil-wrapper {
+    .perfil-container {
       position: relative;
       display: inline-block;
     }
 
-    .foto-principal {
-      width: 130px;
-      height: 130px;
+    .foto-perfil {
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
-      border: 4px solid white;
-      box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
+      border: 5px solid white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       object-fit: cover;
-      margin-bottom: 10px;
     }
 
-    .logo-marca {
-      display: block;
-      width: 80px;
-      margin: 0 auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    /* Gatito Cuchi Saludando */
-    .mascota-cuchi {
+    /* Gatito y Mensaje */
+    .gatito-container {
       position: absolute;
-      top: -15px;
-      right: -10px;
-      font-size: 50px;
-      animation: saludo 2s infinite ease-in-out;
-      cursor: default;
+      top: -40px;
+      right: -30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .burbuja {
+      background: white;
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 12px;
+      font-weight: bold;
+      color: var(--rosa);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 5px;
+      border: 1px solid var(--rosa);
+      white-space: nowrap;
+    }
+
+    .gatito {
+      font-size: 45px;
+      animation: saludo 2s infinite;
     }
 
     @keyframes saludo {
-      0%, 100% { transform: rotate(0deg) scale(1); }
-      50% { transform: rotate(20deg) scale(1.1); }
+      0%, 100% { transform: scale(1) rotate(0); }
+      50% { transform: scale(1.1) rotate(10deg); }
+    }
+
+    .logo-img {
+      width: 80px;
+      margin-top: 15px;
+      border-radius: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     h1 {
-      font-size: 22px;
-      color: #ff4d94;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin: 15px 0;
-      text-shadow: 1px 1px 2px white;
+      color: var(--rosa);
+      font-size: 24px;
+      margin: 20px 0;
+      text-shadow: 1px 1px 0px white;
     }
 
-    /* Botones Estilo Nube */
-    .enlaces-container {
+    /* --- Botones --- */
+    .links {
       width: 90%;
       max-width: 380px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
+      z-index: 10;
     }
 
-    .btn-servicio {
+    .card {
       background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(10px);
+      display: block;
       padding: 18px;
-      border-radius: 30px;
+      margin-bottom: 15px;
+      border-radius: 50px;
       text-align: center;
       text-decoration: none;
-      color: #555;
+      color: #444;
       font-weight: 700;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+      border: 1px solid white;
+      transition: 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
-    .btn-servicio:hover {
-      transform: translateY(-5px);
+    .card:hover {
+      transform: scale(1.05);
       background: white;
-      color: #ff4d94;
-      box-shadow: 0 10px 25px rgba(255, 77, 148, 0.2);
+      color: var(--rosa);
+      box-shadow: 0 10px 25px rgba(255, 110, 180, 0.2);
     }
 
-    .insta-link {
-      margin-top: 25px;
+    .insta {
+      margin: 20px 0;
       color: #ad1457;
       text-decoration: none;
       font-weight: bold;
-      border-bottom: 2px solid #ffc1e3;
-      padding-bottom: 2px;
+      z-index: 10;
     }
 
-    /* Botón WhatsApp Flotante */
-    .whatsapp-btn {
+    /* --- WhatsApp --- */
+    .wa-btn {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #25D366;
-      width: 65px;
-      height: 65px;
+      bottom: 25px;
+      right: 25px;
+      background: #25d366;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
       z-index: 100;
       animation: pulso 2s infinite;
     }
@@ -140,29 +172,38 @@
 </head>
 <body>
 
-<header>
-  <div class="perfil-wrapper">
-    <div class="mascota-cuchi">🐱</div>
-    <img src="foto.jpg" class="foto-principal" alt="Dariana">
-    <img src="logo.png" class="logo-marca" alt="Logo">
+  <div class="decoracion" style="left:10%; animation-duration: 8s;">💻</div>
+  <div class="decoracion" style="left:30%; animation-duration: 12s;">🖱️</div>
+  <div class="decoracion" style="left:55%; animation-duration: 10s;">💻</div>
+  <div class="decoracion" style="left:80%; animation-duration: 15s;">🖱️</div>
+  <div class="decoracion" style="left:90%; animation-duration: 9s;">💻</div>
+
+  <header>
+    <div class="perfil-container">
+      <div class="gatito-container">
+        <div class="burbuja">¡Atrévete a innovar!</div>
+        <div class="gatito">🐱</div>
+      </div>
+      <img src="foto.jpg" class="foto-perfil" alt="Dariana">
+      <img src="logo.png" class="logo-img" alt="Logo">
+    </div>
+    <h1>Servicios Digitales</h1>
+  </header>
+
+  <div class="links">
+    <a href="#" class="card">✨ Páginas web básicas</a>
+    <a href="#" class="card">🎨 Diseño HTML y CSS</a>
+    <a href="#" class="card">📂 Trabajos administrativos</a>
+    <a href="#" class="card">💻 Asesorías de programación</a>
   </div>
-  <h1>Servicios Digitales & Administrativos</h1>
-</header>
 
-<div class="enlaces-container">
-  <a href="#" class="btn-servicio">✨ Páginas web básicas</a>
-  <a href="#" class="btn-servicio">🎨 Diseño HTML y CSS</a>
-  <a href="#" class="btn-servicio">📁 Trabajos administrativos</a>
-  <a href="#" class="btn-servicio">💻 Asesorías de programación</a>
-</div>
+  <a class="insta" href="https://www.instagram.com/alexandra_leoespi/" target="_blank">
+    💖 Sígueme en Instagram
+  </a>
 
-<a class="insta-link" href="https://www.instagram.com/alexandra_leoespi/" target="_blank">
-  💖 Sígueme en Instagram
-</a>
-
-<a href="https://wa.me/584143731342" class="whatsapp-btn" target="_blank">
-  <span style="font-size: 35px; color: white;">💬</span>
-</a>
+  <a href="https://wa.me/584143731342" class="wa-btn" target="_blank">
+    <span style="color:white; font-size:30px;">💬</span>
+  </a>
 
 </body>
 </html>
