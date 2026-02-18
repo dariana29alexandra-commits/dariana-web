@@ -3,43 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dariana Leonicie | Servicios Digitales</title>
+  <title>Servicios de Dariana</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- Animaciones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f72585, #b5179e, #7209b7, #560bad);
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
       background-size: 400% 400%;
-      animation: fondoAnimado 12s ease infinite;
+      animation: fondo 12s ease infinite;
+      text-align: center;
       color: #333;
+      overflow-x: hidden;
     }
 
-    @keyframes fondoAnimado {
+    @keyframes fondo {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
+    header {
+      padding: 40px 20px;
+    }
+
+    header img {
+      width: 120px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      margin: 10px 0;
+      font-size: 2.5rem;
+    }
+
+    .servicios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 30px;
     }
 
     .card {
       background: white;
-      border-radius: 25px;
-      padding: 25px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-      margin-bottom: 25px;
-      text-align: center;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
     }
 
-    .logo {
-      width: 150px;
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    }
+
+    .card span {
+      font-size: 40px;
+      display: block;
       margin-bottom: 10px;
       animation: flotar 3s ease-in-out infinite;
     }
@@ -49,147 +75,115 @@
       50% { transform: translateY(-10px); }
     }
 
-    .profile-pic {
-      width: 170px;
-      height: 170px;
+    .precio {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #ff4d6d;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      font-size: 28px;
+      padding: 15px 18px;
       border-radius: 50%;
-      object-fit: cover;
-      border: 6px solid #f72585;
-      margin-top: 15px;
-    }
-
-    h1 { font-size: 42px; color: #7209b7; }
-    h2 { color: #b5179e; }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .project {
-      background: linear-gradient(135deg, #f72585, #7209b7);
-      color: white;
-      padding: 15px;
-      border-radius: 15px;
-      transition: 0.3s;
-    }
-
-    .project:hover { transform: scale(1.05); }
-
-    .servicio {
-      background: #fff0fb;
-      padding: 20px;
-      border-radius: 15px;
-      margin: 10px 0;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 24px;
-      background: linear-gradient(45deg, #25D366, #128C7E);
-      color: white;
-      border-radius: 30px;
       text-decoration: none;
-      font-weight: bold;
-      animation: pulso 2s infinite;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      animation: latido 1.5s infinite;
     }
 
-    @keyframes pulso {
-      0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); }
-      70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
-      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
-    }
-
-    .price-box {
-      background: linear-gradient(135deg, #ffe0f0, #f3c4ff);
-      padding: 18px;
-      border-radius: 15px;
-      font-weight: bold;
-      color: #7209b7;
-      font-size: 18px;
-      margin-top: 15px;
+    @keyframes latido {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
     }
 
     footer {
-      text-align: center;
+      margin: 40px 0 20px;
       font-size: 14px;
+    }
+
+    .instagram {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 18px;
+      background: linear-gradient(45deg, #feda75, #d62976, #962fbf);
       color: white;
-      margin-top: 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      animation: brillo 2s infinite alternate;
+    }
+
+    @keyframes brillo {
+      from { box-shadow: 0 0 5px rgba(255,255,255,0.3); }
+      to { box-shadow: 0 0 20px rgba(255,255,255,0.9); }
+    }
+
+    /* Objetos flotantes */
+    .objeto {
+      position: fixed;
+      font-size: 30px;
+      animation: subir 10s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes subir {
+      from { transform: translateY(100vh); }
+      to { transform: translateY(-10vh); }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
 
-    <!-- ENCABEZADO -->
-    <div class="card">
-      <img src="logo.png" class="logo" alt="Logo">
-      <h1>Dariana Leonicie</h1>
-      <p>Servicios digitales, programación y apoyo administrativo para estudiantes, negocios y emprendedores 💻✨</p>
-      <img src="foto.jpg" class="profile-pic" alt="Foto">
-      <p><strong>📱 04143731342<br>📧 dariana29.alexandra@gmail.com</strong></p>
-      <a class="btn" href="https://wa.me/584143731342" target="_blank">💬 Escríbeme por WhatsApp</a>
+  <!-- Objetos animados -->
+  <div class="objeto" style="left:10%; animation-duration:12s;">💻</div>
+  <div class="objeto" style="left:30%; animation-duration:9s;">📊</div>
+  <div class="objeto" style="left:50%; animation-duration:14s;">🖥️</div>
+  <div class="objeto" style="left:70%; animation-duration:11s;">📁</div>
+  <div class="objeto" style="left:90%; animation-duration:13s;">✨</div>
+
+  <header class="animate__animated animate__fadeInDown">
+    <img src="foto.jpg" alt="Foto de Dariana" />
+    <h1>Dariana Alexandra</h1>
+    <p>Programación • Soporte • Administración</p>
+
+    <a class="instagram" href="https://www.instagram.com/alexandra_leoespi/" target="_blank">Ver mi Instagram</a>
+  </header>
+
+  <section class="servicios">
+
+    <div class="card animate__animated animate__zoomIn">
+      <span>💻</span>
+      <h3>Páginas Web</h3>
+      <p>Diseño de páginas modernas, landing page y edición de código.</p>
+      <div class="precio">Desde $10</div>
     </div>
 
-    <!-- EXPERIENCIA -->
-    <div class="card">
-      <h2>Experiencia</h2>
-      <ul style="text-align:left;">
-        <li>Creación de páginas web modernas y responsivas.</li>
-        <li>Programación en C++ y resolución de algoritmos.</li>
-        <li>Automatización de tareas digitales.</li>
-        <li>Asesorías en programación básica e intermedia.</li>
-        <li>Gestión de documentos y apoyo administrativo.</li>
-      </ul>
+    <div class="card animate__animated animate__zoomIn">
+      <span>🛠️</span>
+      <h3>Soporte Técnico</h3>
+      <p>Instalación de programas, limpieza y optimización de computadoras.</p>
+      <div class="precio">Consultar precio</div>
     </div>
 
-    <!-- PROYECTOS -->
-    <div class="card">
-      <h2>Proyectos Destacados</h2>
-      <div class="grid">
-        <div class="project">Landing page profesional</div>
-        <div class="project">Chatbot en C++</div>
-        <div class="project">Algoritmos y grafos</div>
-        <div class="project">Automatizaciones útiles</div>
-      </div>
+    <div class="card animate__animated animate__zoomIn">
+      <span>📊</span>
+      <h3>Trabajos Administrativos</h3>
+      <p>Word, Excel, PowerPoint, transcripciones, currículums y organización de datos.</p>
+      <div class="precio">Desde $10</div>
     </div>
 
-    <!-- SERVICIOS -->
-    <div class="card">
-      <h2>Servicios que ofrezco</h2>
+  </section>
 
-      <div class="servicio">
-        <h3>💻 Desarrollo Web</h3>
-        <p>Páginas web modernas, edición de código HTML, CSS y JavaScript.</p>
-      </div>
+  <a class="whatsapp" href="https://wa.me/5841443731342" target="_blank">💬</a>
 
-      <div class="servicio">
-        <h3>🛠 Soporte Técnico</h3>
-        <p>Instalación de programas, optimización de computadoras y asesorías tecnológicas.</p>
-      </div>
+  <footer>
+    © 2026 Dariana Alexandra — Servicios digitales
+  </footer>
 
-      <div class="servicio">
-        <h3>📊 Trabajos Administrativos</h3>
-        <p>Documentos en Word, Excel y PowerPoint, transcripciones, currículums y organización de datos.</p>
-      </div>
-
-      <div class="price-box">
-        💰 Precios desde 10$ tasa BCV — Consulta tu presupuesto al privado.
-      </div>
-    </div>
-
-    <!-- CTA FINAL -->
-    <div class="card">
-      <h2>✨ Hagamos tu proyecto realidad ✨</h2>
-      <a class="btn" href="https://wa.me/584143731342" target="_blank">Escribirme ahora</a>
-    </div>
-
-    <footer>
-      © 2026 Dariana Leonicie — Hecho con 💜 y mucho código
-    </footer>
-
-  </div>
 </body>
 </html>
