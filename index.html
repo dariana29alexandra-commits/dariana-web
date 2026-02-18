@@ -5,110 +5,205 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios de Dariana</title>
   <style>
+    :root {
+      --primario: #ff4fa3;
+      --secundario: #00d4ff;
+      --fondo-gradiente: linear-gradient(-45deg, #ffd6ec, #e0f7ff, #fff0f6, #d7f3fe);
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(120deg, #ffd6ec, #e0f7ff);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--fondo-gradiente);
+      background-size: 400% 400%;
+      animation: gradienteMovil 10s ease infinite;
       overflow-x: hidden;
+      color: #444;
+    }
+
+    @keyframes gradienteMovil {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     header {
       display: flex;
+      flex-direction: column; /* Centra todo verticalmente */
       align-items: center;
       justify-content: center;
-      gap: 20px;
-      padding: 30px 10px;
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 40px 10px;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .contenedor-foto {
+      position: relative;
+      display: inline-block;
     }
 
     .logo {
-      width: 110px;
-      border-radius: 20px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%; /* Foto circular para más estilo */
+      border: 5px solid white;
+      box-shadow: 0 8px 25px rgba(255, 79, 163, 0.3);
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .logo:hover {
+      transform: scale(1.1) rotate(3deg);
     }
 
     .mascota {
-      font-size: 70px;
-      animation: flotar 3s ease-in-out infinite;
+      font-size: 50px;
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      display: inline-block;
+      animation: saludoCuchi 2.5s ease-in-out infinite;
+      filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
     }
 
-    @keyframes flotar {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    @keyframes saludoCuchi {
+      0%, 100% { transform: rotate(0deg) translateY(0); }
+      25% { transform: rotate(15deg) translateY(-10px); }
+      75% { transform: rotate(-10deg) translateY(-5px); }
     }
 
     h1 {
       text-align: center;
-      color: #ff4fa3;
-      margin-top: 10px;
+      color: var(--primario);
+      margin-top: 25px;
+      font-size: 1.8rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+      animation: entradaTexto 1s ease-out;
+    }
+
+    @keyframes entradaTexto {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .servicios {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
     .card {
-      background: white;
-      border-radius: 20px;
-      padding: 20px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 25px;
+      padding: 30px;
       text-align: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+      font-weight: bold;
+      color: #666;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      transition: all 0.4s ease;
+      cursor: default;
+      animation: aparecerCards 0.8s ease backwards;
+    }
+
+    /* Retraso para que las tarjetas aparezcan una tras otra */
+    .card:nth-child(1) { animation-delay: 0.2s; }
+    .card:nth-child(2) { animation-delay: 0.4s; }
+    .card:nth-child(3) { animation-delay: 0.6s; }
+    .card:nth-child(4) { animation-delay: 0.8s; }
+
+    @keyframes aparecerCards {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     .card:hover {
-      transform: translateY(-8px) scale(1.03);
+      transform: translateY(-12px);
+      background: white;
+      color: var(--primario);
+      box-shadow: 0 15px 30px rgba(255, 79, 163, 0.2);
+    }
+
+    .instagram {
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      padding: 12px 25px;
+      border-radius: 30px;
+      margin: 20px auto;
+      transition: transform 0.3s;
+      font-weight: bold;
+      animation: flotarBoton 3s ease-in-out infinite;
+    }
+
+    @keyframes flotarBoton {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .social-container {
+      text-align: center;
+      margin-bottom: 100px;
     }
 
     .whatsapp {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 30px;
+      right: 30px;
       background: #25D366;
       color: white;
-      padding: 15px 18px;
-      border-radius: 50px;
-      font-size: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
       text-decoration: none;
-      animation: latir 1.5s infinite;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+      z-index: 100;
+      animation: latir 2s infinite;
     }
 
     @keyframes latir {
-      0%,100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-
-    .instagram {
-      display: block;
-      text-align: center;
-      margin: 20px;
-      font-size: 18px;
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <span class="mascota">🤖</span>
-  <img src="logo.png" class="logo" alt="Logo">
+  <div class="contenedor-foto">
+    <img src="logo.png" class="logo" alt="Dariana">
+    <span class="mascota">🤖</span>
+  </div>
+  <h1>Servicios Digitales & Administrativos</h1>
 </header>
 
-<h1>Servicios digitales y administrativos</h1>
-
 <section class="servicios">
-  <div class="card">Páginas web básicas</div>
-  <div class="card">Diseño HTML y CSS</div>
-  <div class="card">Trabajos administrativos</div>
-  <div class="card">Asesorías de programación</div>
+  <div class="card">✨ Páginas Web Básicas</div>
+  <div class="card">🎨 Diseño HTML y CSS</div>
+  <div class="card">📁 Trabajos Administrativos</div>
+  <div class="card">💻 Asesorías de Programación</div>
 </section>
 
-<a class="instagram" href="https://www.instagram.com/alexandra_leoespi/" target="_blank">Ver mi Instagram</a>
+<div class="social-container">
+  <a class="instagram" href="https://www.instagram.com/alexandra_leoespi/" target="_blank">
+    📸 Sígueme en Instagram
+  </a>
+</div>
 
-<a class="whatsapp" href="https://wa.me/584143731342" target="_blank">💬</a>
+<a class="whatsapp" href="https://wa.me/584143731342" target="_blank">
+  <span>💬</span>
+</a>
 
 </body>
 </html>
