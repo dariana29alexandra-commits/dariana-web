@@ -3,155 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dariana | Servicios Digitales</title>
+  <title>Dariana | Digital Services</title>
   <style>
     :root {
-      --rosa-fuerte: #ff4fa3;
-      --rosa-suave: #ffb6c1;
-      --celeste-claro: #e0f7ff;
-      --blanco-cristal: rgba(255, 255, 255, 0.85);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      --acento: #ff85c1;
+      --fondo: linear-gradient(135deg, #fff5f8 0%, #e3f2fd 100%);
     }
 
     body {
-      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background: linear-gradient(135deg, #ffd6ec 0%, #e0f7ff 100%);
-      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--fondo);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      color: #333;
     }
 
-    /* Encabezado Principal */
+    /* Contenedor de Foto y Logo Centrados */
     header {
-      width: 100%;
       padding: 40px 20px;
+      text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
     }
 
     .perfil-container {
       position: relative;
-      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
     }
 
-    .logo {
-      width: 130px;
-      height: 130px;
+    /* Tu Foto Principal */
+    .foto-usuario {
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
-      border: 4px solid white;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border: 5px solid white;
+      box-shadow: 0 10px 20px rgba(255, 133, 193, 0.2);
       object-fit: cover;
-      transition: transform 0.3s ease;
+      z-index: 2;
     }
 
-    .robot-cuchi {
+    /* El Logo */
+    .logo-marca {
+      width: 80px;
+      height: auto;
+      border-radius: 12px;
+      margin-top: -10px;
+    }
+
+    /* El toque Cuchi: Conejito animado */
+    .mascota-cuchi {
       position: absolute;
-      bottom: 0;
-      right: -10px;
+      top: -10px;
+      right: -15px;
       font-size: 45px;
-      animation: flotar 3s ease-in-out infinite;
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+      animation: rebote 2s infinite ease-in-out;
+      filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
     }
 
-    @keyframes flotar {
+    @keyframes rebote {
       0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-12px) rotate(10deg); }
+      50% { transform: translateY(-10px) rotate(10deg); }
     }
 
     h1 {
-      font-size: 26px;
-      color: var(--rosa-fuerte);
+      color: #ff4081;
+      font-size: 22px;
+      margin-top: 20px;
       font-weight: 800;
-      letter-spacing: -0.5px;
-      max-width: 300px;
-      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    /* Sección de Servicios */
-    .servicios {
+    /* Botones Estilo Burbuja */
+    .servicios-links {
       width: 90%;
-      max-width: 400px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      padding-bottom: 40px;
-    }
-
-    .card {
-      background: var(--blanco-cristal);
-      backdrop-filter: blur(10px);
-      padding: 18px 25px;
-      border-radius: 20px;
-      text-align: center;
-      font-size: 17px;
-      font-weight: 600;
-      color: #555;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      border: 1px solid rgba(255,255,255,0.5);
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .card:hover {
-      transform: scale(1.03);
-      background: white;
-      color: var(--rosa-fuerte);
-      box-shadow: 0 8px 20px rgba(255, 79, 163, 0.15);
-    }
-
-    /* Enlace Instagram */
-    .instagram-link {
+      max-width: 360px;
       margin-top: 10px;
-      color: #777;
+    }
+
+    .link-card {
+      display: block;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(5px);
+      margin-bottom: 12px;
+      padding: 16px;
+      border-radius: 25px;
+      text-align: center;
       text-decoration: none;
-      font-weight: 700;
+      color: #444;
+      font-weight: 600;
+      border: 1px solid rgba(255, 133, 193, 0.3);
+      transition: 0.3s all ease;
+    }
+
+    .link-card:hover {
+      transform: scale(1.05);
+      background: white;
+      color: #ff4081;
+      box-shadow: 0 10px 20px rgba(255, 64, 129, 0.1);
+    }
+
+    .instagram-btn {
+      margin-top: 25px;
+      color: #ad1457;
+      text-decoration: none;
       font-size: 15px;
-      border-bottom: 2px solid var(--rosa-suave);
-      padding-bottom: 2px;
-      transition: color 0.3s;
+      font-weight: bold;
+      border-bottom: 2px solid #ffc1e3;
     }
 
-    .instagram-link:hover {
-      color: var(--rosa-fuerte);
-      border-bottom-color: var(--rosa-fuerte);
-    }
-
-    /* Botón Flotante WhatsApp */
-    .whatsapp {
+    /* WhatsApp Flotante */
+    .ws-float {
       position: fixed;
       bottom: 25px;
       right: 25px;
-      background: #25D366;
+      background: #25d366;
       width: 60px;
       height: 60px;
       border-radius: 50%;
       display: flex;
-      align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      align-items: center;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
       text-decoration: none;
-      font-size: 28px;
-      z-index: 100;
-      animation: pulso 2s infinite;
-    }
-
-    @keyframes pulso {
-      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+      font-size: 30px;
     }
   </style>
 </head>
@@ -159,25 +141,26 @@
 
 <header>
   <div class="perfil-container">
-    <img src="logo.png" class="logo" alt="Dariana">
-    <div class="robot-cuchi">🤖</div>
+    <div class="mascota-cuchi">🐰</div>
+    <img src="foto.jpn" class="foto-usuario" alt="Mi Foto">
+    <img src="logo.jpg" class="logo-marca" alt="Mi Logo">
   </div>
-  <h1>Servicios Digitales & Administrativos</h1>
+  <h1>Servicios Digitales</h1>
 </header>
 
-<section class="servicios">
-  <div class="card">🚀 Páginas web básicas</div>
-  <div class="card">🎨 Diseño HTML y CSS</div>
-  <div class="card">📋 Trabajos administrativos</div>
-  <div class="card">👩‍💻 Asesorías de programación</div>
-</section>
+<div class="servicios-links">
+  <a href="#" class="link-card">✨ Páginas Web Básicas</a>
+  <a href="#" class="link-card">🎨 Diseño HTML y CSS</a>
+  <a href="#" class="link-card">📂 Trabajos Administrativos</a>
+  <a href="#" class="link-card">💻 Asesorías de Programación</a>
+</div>
 
-<a class="instagram-link" href="https://www.instagram.com/alexandra_leoespi/" target="_blank">
-  Ver mi Instagram
+<a class="instagram-btn" href="https://www.instagram.com/alexandra_leoespi/" target="_blank">
+  💖 Sígueme en Instagram
 </a>
 
-<a class="whatsapp" href="https://wa.me/584143731342" target="_blank">
-  <span style="color:white">💬</span>
+<a href="https://wa.me/584143731342" class="ws-float" target="_blank">
+  <span>💬</span>
 </a>
 
 </body>
