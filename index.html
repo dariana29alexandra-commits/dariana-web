@@ -3,46 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dariana | Innovación Digital</title>
+  <title>Dariana - Servicios Digitales</title>
   <style>
-    :root {
-      --rosa: #ff6eb4;
-      --celeste: #8de4ff;
-    }
-
     body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff0f5;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ffeef8 0%, #e0f7ff 100%);
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
+      color: #333;
       overflow-x: hidden;
-      position: relative;
     }
 
-    /* --- Fondo Animado de Computadoras y Mouses --- */
+    /* --- Decoración --- */
     .decoracion {
-      position: fixed;
-      top: -10%;
-      font-size: 25px;
-      user-select: none;
-      z-index: 0;
-      filter: opacity(0.3);
-      animation: caer linear infinite;
+      position: absolute;
+      font-size: 50px;
+      opacity: 0.1;
+      z-index: -1;
+      animation: flotar 10s infinite linear;
     }
 
-    @keyframes caer {
-      to { transform: translateY(110vh) rotate(360deg); }
+    @keyframes flotar {
+      from { transform: translateY(100vh) rotate(0deg); }
+      to { transform: translateY(-10vh) rotate(360deg); }
     }
 
-    /* --- Encabezado --- */
+    /* --- Header --- */
     header {
-      padding: 50px 20px 20px;
+      width: 100%;
+      background: white;
+      padding: 40px 0;
       text-align: center;
-      z-index: 10;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
     }
 
     .perfil-container {
@@ -51,91 +48,92 @@
     }
 
     .foto-perfil {
-      width: 140px;
-      height: 140px;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
-      border: 5px solid white;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border: 5px solid #ad1457;
       object-fit: cover;
-    }
-
-    /* Gatito y Mensaje */
-    .gatito-container {
-      position: absolute;
-      top: -40px;
-      right: -30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .burbuja {
-      background: white;
-      padding: 5px 10px;
-      border-radius: 15px;
-      font-size: 12px;
-      font-weight: bold;
-      color: var(--rosa);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin-bottom: 5px;
-      border: 1px solid var(--rosa);
-      white-space: nowrap;
-    }
-
-    .gatito {
-      font-size: 45px;
-      animation: saludo 2s infinite;
-    }
-
-    @keyframes saludo {
-      0%, 100% { transform: scale(1) rotate(0); }
-      50% { transform: scale(1.1) rotate(10deg); }
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
     .logo-img {
-      width: 80px;
-      margin-top: 15px;
-      border-radius: 10px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      width: 50px;
+      height: 50px;
+      background: white;
+      border-radius: 50%;
+      padding: 5px;
+      border: 2px solid #ad1457;
     }
 
-    h1 {
-      color: var(--rosa);
-      font-size: 24px;
-      margin: 20px 0;
-      text-shadow: 1px 1px 0px white;
+    .gatito-container {
+      position: absolute;
+      top: -40px;
+      left: -60px;
+      text-align: center;
     }
 
-    /* --- Botones --- */
+    .burbuja {
+      background: #ad1457;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 12px;
+      margin-bottom: 5px;
+      position: relative;
+    }
+
+    .burbuja::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      right: 15px;
+      border-width: 5px 5px 0;
+      border-style: solid;
+      border-color: #ad1457 transparent;
+    }
+
+    .gatito { font-size: 40px; }
+
+    header h1 {
+      margin: 15px 0 5px;
+      font-size: 28px;
+      color: #ad1457;
+    }
+
+    /* --- Links --- */
     .links {
       width: 90%;
-      max-width: 380px;
-      z-index: 10;
+      max-width: 400px;
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      display: block;
+      background: white;
       padding: 18px;
-      margin-bottom: 15px;
-      border-radius: 50px;
-      text-align: center;
+      border-radius: 15px;
       text-decoration: none;
-      color: #444;
-      font-weight: 700;
-      border: 1px solid white;
-      transition: 0.3s;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      color: #333;
+      font-weight: 600;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
     }
 
     .card:hover {
-      transform: scale(1.05);
-      background: white;
-      color: var(--rosa);
-      box-shadow: 0 10px 25px rgba(255, 110, 180, 0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(173, 20, 87, 0.1);
+      background: #fff5f8;
+      color: #ad1457;
     }
 
     .insta {
@@ -191,6 +189,9 @@
   </header>
 
   <div class="links">
+    <a href="https://dlsd-sistema-contable.onrender.com" class="card" target="_blank">📊 Sistema Contable DLSD</a>
+    <a href="https://dariana29alexandra-commits.github.io/arantza_eventos/" class="card" target="_blank">🎈 Arantza Eventos</a>
+    
     <a href="#" class="card">✨ Páginas web básicas</a>
     <a href="#" class="card">🎨 Diseño HTML y CSS</a>
     <a href="#" class="card">📂 Trabajos administrativos</a>
